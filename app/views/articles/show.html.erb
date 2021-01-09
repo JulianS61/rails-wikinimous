@@ -1,0 +1,6 @@
+<h2>
+  <%= @article.title %>
+  <%= link_to "✏️", edit_article_url %>
+  <%= link_to "🚮", @articles, method: :delete %>
+</h2>
+<p><%= @article.content %></p>
