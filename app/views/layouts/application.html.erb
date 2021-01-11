@@ -10,7 +10,17 @@
   </head>
 
   <body>
-    <h1>Wikinimous</h1>
-    <%= yield %>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary justify-content-between">
+      <%= link_to "Wikinimous", articles_path, class: "navbar-brand mb-0 h1" %>
+      <% if params[:action] == "index" %>
+        <%= link_to "Write New Article", new_article_url, class: "btn btn-outline-light my-2 my-sm-0" %>
+      <% end %>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

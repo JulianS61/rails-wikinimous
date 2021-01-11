@@ -8,9 +8,14 @@
 
 require 'faker'
 
-10.times do
-  Article.create(
+puts "trash all article db ..."
+Article.destroy_all
+
+25.times do
+  Article.create!(
     title: Faker::ProgrammingLanguage.name,
-    content: Faker::Quote.famous_last_words
+    content: Faker::Lorem.paragraph(sentence_count: 20, supplemental: true, random_sentences_to_add: 20)
     )
 end
+
+puts "Finished ..."

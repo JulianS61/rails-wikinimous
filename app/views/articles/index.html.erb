@@ -1,8 +1,13 @@
-<%= link_to "Write New Article", new_article_url %>
-
-<% @articles.each do |article| %>
-  <div>
-    <h2><%= link_to article.title, article %></h2>
-    <p><%= article.content %></p>
-  </div>
-<% end %>
+<div class="col-8 col-md-12 mx-auto">
+  <% @articles.each_with_index do |article, idx| %>
+    <%= link_to article do %>
+      <div class="card my-3 <%= idx.odd? ? 'border-primary' : 'text-white bg-primary' %>">
+        <div class="card-header h2"> <%= article.title %> </div>
+        <div class="card-body <%= 'text-primary' if idx.odd? %> ">
+          <p class="card-text text-truncate"> <%= article.content %> </p>
+        </div>
+        <div class="card-footer"><small>Last updated : <%= article.updated_at %> </small></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

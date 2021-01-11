@@ -1,7 +1,7 @@
-<%= form_for(@article) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= f.submit %>
-<% end %>
+<div class="mx-auto mt-5 col-8">
+  <%= simple_form_for(@article) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.submit "#{@article.new_record? ? 'Create Article' : 'Update Article' }", class: "btn btn-primary btn-lg mx-auto d-block" %>
+  <% end %>
+</div>

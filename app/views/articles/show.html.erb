@@ -1,6 +1,17 @@
-<h2>
-  <%= @article.title %>
-  <%= link_to "✏️", edit_article_url %>
-  <%= link_to "🚮", @articles, method: :delete %>
-</h2>
-<p><%= @article.content %></p>
+<div class="col-8 col-md-12 mx-auto">
+  <div class="card my-3 border-primary">
+    <div class="card-header h2 d-flex justify-content-between">
+      <%= @article.title %>
+      <div>
+        <%= link_to icon('fas', 'edit'), edit_article_url %>
+        <%= link_to icon('fas', 'trash-alt'), @articles, method: :delete %>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text"> <%= @article.content %> </p>
+    </div>
+    <div class="card-footer"><small>Last updated : <%= @article.updated_at %> </small></div>
+  </div>
+</div>
+
+<%= link_to "Back to list", articles_path, class: "w-25 btn btn-primary btn-lg mx-auto d-block" %>
